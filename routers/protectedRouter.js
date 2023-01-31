@@ -3,22 +3,18 @@ import checkAccess from "../middlewares/checkAccess.js";
 
 const router = Router();
 
-router.get("/", checkAccess(["User"]), (req, res, next) => {
+router.get("/", checkAccess("Read"), (req, res, next) => {
     res.json([]);
 });
-router.post("/", checkAccess(["Editor", "Admin"]), (req, res, next) => {
+router.post("/", checkAccess("Create"), (req, res, next) => {
     res.status(201).end();
 });
-router.put("/:id", checkAccess(["Editor", "Admin"]), (req, res, next) => {
+router.put("/:id", checkAccess("Change"), (req, res, next) => {
     res.status(204).end();
 });
-router.delete(
-    "/:id",
-    checkAccess(["Admin", "Mastermind"]),
-    (req, res, next) => {
-        res.status(204).end();
-    }
-);
+router.delete("/:id", checkAccess("Delete"), (req, res, next) => {
+    res.status(204).end();
+});
 
 export default router;
 
