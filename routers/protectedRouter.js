@@ -1,20 +1,24 @@
 import { Router } from "express";
-import checkRole from "../middlewares/checkRole.js";
+import checkAccess from "../middlewares/checkAccess.js";
 
 const router = Router();
 
-router.post("/", checkRole(["Editor", "Admin"]), (req, res, next) => {
-    res.status(201).end();
-});
-router.get("/", (req, res, next) => {
+router.get("/", checkAccess(["User"]), (req, res, next) => {
     res.json([]);
 });
-router.put("/:id", checkRole(["Editor", "Admin"]), (req, res, next) => {
+router.post("/", checkAccess(["Editor", "Admin"]), (req, res, next) => {
+    res.status(201).end();
+});
+router.put("/:id", checkAccess(["Editor", "Admin"]), (req, res, next) => {
     res.status(204).end();
 });
-router.delete("/:id", checkRole(["Admin", "Mastermind"]), (req, res, next) => {
-    res.status(204).end();
-});
+router.delete(
+    "/:id",
+    checkAccess(["Admin", "Mastermind"]),
+    (req, res, next) => {
+        res.status(204).end();
+    }
+);
 
 export default router;
 

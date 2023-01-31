@@ -3,7 +3,7 @@ import token from "../lib/token.js";
 function checkToken(req, res, next) {
     try {
         const payload = token.verifyToken(req.body.token);
-        console.log(payload.role);
+        console.log(payload.access);
         req.user = payload;
         next();
     } catch (error) {

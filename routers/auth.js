@@ -7,22 +7,22 @@ const users = [
     {
         id: 1,
         username: "user1",
-        role: "User",
+        access: ["Read"],
     },
     {
         id: 2,
         username: "user2",
-        role: "Editor",
+        access: ["Read", "Change", "Delete"],
     },
     {
         id: 3,
         username: "user3",
-        role: "Admin",
+        access: ["Create"],
     },
     {
         id: 4,
         username: "user4",
-        role: "Mastermind",
+        access: ["Read", "Create", "Change"],
     },
 ];
 
@@ -30,7 +30,7 @@ router.post("/login", (req, res, next) => {
     const user = users.find((user) => user.username === req.body.username);
     if (!user) return res.status(401).end();
 
-    const userToken = token.signToken({ id: user.id, role: user.role });
+    const userToken = token.signToken({ id: user.id, access: user.access });
     res.json(userToken);
 });
 
