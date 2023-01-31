@@ -1,6 +1,6 @@
-function checkAccess(roles) {
+function checkAccess(access) {
     return (req, res, next) => {
-        if (!roles.includes(req.user.access)) {
+        if (!access.includes(req.user.access)) {
             return req.status(403).end();
         }
         next();
