@@ -1,0 +1,30 @@
+{
+    "name": "backend-role-based-access-control",
+    "version": "1.0.0",
+    "description": "```js Erstelle zwei Versionen der gleichen App mit unterschiedlichen Access Control Modellen. Überlege dir, wie du die Modelle geschickt implementieren kannst. Verzichte zunächst auf eine Datenbankanbindung. Diese kannst du später noch hinzufügen, konzentriere dich zuerst auf Access Control. Nutze das users-Array in routes/auth.js, um dir passende Testuser anzulegen. Bearbeite die bestehenden User oder füge weitere hinzu. Lege die Rollen und möglichen Attribute an einem zentralen Platz ab, von dem aus du sie importieren kannst. So sparst du dir sicher die eine oder andere Kopie.",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+        "dev": "nodemon server.js",
+        "start": "node server.js",
+        "seed": "node seed.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/01specter01/backend-role-based-access-control.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/01specter01/backend-role-based-access-control/issues"
+    },
+    "homepage": "https://github.com/01specter01/backend-role-based-access-control#readme",
+    "dependencies": {
+        "bcrypt": "^5.1.0",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "jsonwebtoken": "^9.0.0",
+        "nodemon": "^2.0.20"
+    }
+}
