@@ -7,7 +7,7 @@ const users = [
     {
         id: 1,
         username: "user1",
-        access: ["Read","Create"],
+        access: ["Read", "Create"],
     },
     {
         id: 2,
